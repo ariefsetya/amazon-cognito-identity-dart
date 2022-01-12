@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:convert/convert.dart';
+import 'package:convert/convert.dart' as cvt;
 import 'package:crypto/crypto.dart';
 import 'random_string_helper.dart';
 
@@ -96,7 +96,7 @@ class AuthenticationHelper {
     final sValue = calculateS(xValue, serverBValue);
 
     List<int> hkdf =
-        computehkdf(hex.decode(padHex(sValue)), hex.decode(padHex(_uValue)));
+        computehkdf(cvt.hex.decode(padHex(sValue)), cvt.hex.decode(padHex(_uValue)));
 
     return hkdf;
   }
@@ -145,7 +145,7 @@ class AuthenticationHelper {
 
   /// Calculate a hash from a hex string
   String hexHash(String hexStr) {
-    return this.hash(hex.decode(hexStr));
+    return this.hash(cvt.hex.decode(hexStr));
   }
 
   /// Calculate the client's public value A = g^a%N

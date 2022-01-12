@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:convert/convert.dart';
+import 'package:convert/convert.dart' as cvt;
 import 'package:crypto/crypto.dart';
 import 'attribute_arg.dart';
 import 'cognito_user_attribute.dart';
@@ -119,9 +119,9 @@ class CognitoUser {
     );
 
     final Map<String, String> deviceSecretVerifierConfig = {
-      'Salt': base64.encode(hex.decode(authenticationHelper.getSaltDevices())),
+      'Salt': base64.encode(cvt.hex.decode(authenticationHelper.getSaltDevices())),
       'PasswordVerifier':
-          base64.encode(hex.decode(authenticationHelper.getVerifierDevices()))
+          base64.encode(cvt.hex.decode(authenticationHelper.getVerifierDevices()))
     };
 
     verifierDevices = deviceSecretVerifierConfig['PasswordVerifier'];
@@ -762,9 +762,9 @@ class CognitoUser {
             ['DeviceKey']);
 
     final Map<String, String> deviceSecretVerifierConfig = {
-      'Salt': base64.encode(hex.decode(authenticationHelper.getSaltDevices())),
+      'Salt': base64.encode(cvt.hex.decode(authenticationHelper.getSaltDevices())),
       'PasswordVerifier':
-          base64.encode(hex.decode(authenticationHelper.getVerifierDevices())),
+          base64.encode(cvt.hex.decode(authenticationHelper.getVerifierDevices())),
     };
 
     verifierDevices = deviceSecretVerifierConfig['PasswordVerifier'];

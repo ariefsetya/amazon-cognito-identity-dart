@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:convert/convert.dart';
+import 'package:convert/convert.dart' as cvt;
 import 'package:crypto/crypto.dart';
 
 const _aws_sha_256 = 'AWS4-HMAC-SHA256';
@@ -134,7 +134,7 @@ class SigV4 {
   }
 
   String hexEncode(List<int> value) {
-    return hex.encode(value);
+    return cvt.hex.encode(value);
   }
 
   List<int> sign(List<int> key, String message) {

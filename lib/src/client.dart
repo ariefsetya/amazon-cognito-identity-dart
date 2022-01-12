@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'cognito_client_exceptions.dart';
+import 'package:path/path.dart';
 
 class Client {
   String _service;
@@ -41,7 +42,7 @@ class Client {
     http.Response response;
     try {
       response = await _client.post(
-        endpointReq,
+        toUri(endpointReq),
         headers: headersReq,
         body: body,
       );

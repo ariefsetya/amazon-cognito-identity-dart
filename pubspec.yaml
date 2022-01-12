@@ -9,6 +9,7 @@ description: Unofficial Amazon Cognito Identity Provider Dart SDK,
 dependencies:
   crypto: ^3.0.1
   http: ^0.13.4
+  path: 1.8.0
 
 dev_dependencies:
   flutter_test:
